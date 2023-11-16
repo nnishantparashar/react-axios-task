@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './Components/Home/Home';
+import { createContext, useState } from 'react';
+export const SessionContext = createContext({});
 
 function App() {
+  const [users, setUsers] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <SessionContext.Provider value={{ users, setUsers}}>
+       <div className='App-header'>
+      <h1>React-Axios-Task</h1>
+      </div>
+      <Home/>
+       </SessionContext.Provider>
+      
     </div>
   );
 }
